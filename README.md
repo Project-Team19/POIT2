@@ -8,4 +8,7 @@
   cin>>a;
   cout<<"Введите b"<<endl;
   cin>>b;
+  cout<<a<<b;
+ }
+ 
  
