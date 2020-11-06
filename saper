@@ -1,0 +1,34 @@
+void Sapper::startGame()
+{
+	// Вернуть блок информации в начальное состояние
+	ui.info->setText(defaultInfo);
+
+	// Установить мины
+	setMines();
+
+	// Обновить статус ячеек поля
+	for (int i = 0; i < Sapper::height; i++)
+	{
+		for (int j = 0; j < Sapper::width; j++)
+		{
+			fieldStatus[i][j] = CLOSED;
+			QPushButton * cell = this->findChild<QPushButton *>("cell" + QString::number(i) + QString::number(j));
+			cell->setStyleSheet("");
+			cell->setText("");
+		}
+	}
+	closedCellCount = Sapper::height * Sapper::width;
+
+	// Первого клика ещё не было
+	firstClick = false;
+
+	// Игра началась
+	gameInProgress = true;
+
+	// Остановить таймер (если начали новую игру, не закончив старую)
+	timer.stop();
+
+	// Переключиться к вкладке с игрой
+	ui.stackedWidget->setCurrentIndex(0);
+}	
+Детали на https://studlearn.com/works/details/igra-saper-c-144
