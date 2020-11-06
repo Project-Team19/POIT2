@@ -19,4 +19,3 @@ public partial class cPlayForm : Form
             }
             
         }
-Детали на https://studlearn.com/works/details/igra-kosti-c-winforms-visual-studio-2010-761
